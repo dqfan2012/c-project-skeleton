@@ -1,10 +1,11 @@
-# C Project Skeleton
+# Table of Contents
 
-- [C Project Skeleton](#c-project-skeleton)
-  - [Static Analysis Tools](#static-analysis-tools)
-    - [Optional Static Analysis tools](#optional-static-analysis-tools)
-      - [Free Options](#free-options)
-      - [Premium, Paid Options](#premium-paid-options)
+- [Table of Contents](#table-of-contents)
+  - [C Project Skeleton](#c-project-skeleton)
+    - [Static Analysis Tools](#static-analysis-tools)
+      - [Optional Static Analysis tools](#optional-static-analysis-tools)
+        - [Free Options](#free-options)
+        - [Premium, Paid Options](#premium-paid-options)
     - [Windows Installation](#windows-installation)
     - [Linux Installation](#linux-installation)
       - [Red Hat-based](#red-hat-based)
@@ -19,11 +20,11 @@
       - [Running the MacOS install script](#running-the-macos-install-script)
       - [After running the MacOS install script](#after-running-the-macos-install-script)
 
----
+## C Project Skeleton
 
 This is a basic C project skeleton. This project provides sane and strict CFLAGS for compiling C programs. This project also includes several make targets to run static analysis tools to help with code saftey and code smell.
 
-## Static Analysis Tools
+### Static Analysis Tools
 
 - cppcheck - The free open source version.
 - valgrind
@@ -35,14 +36,14 @@ This is a basic C project skeleton. This project provides sane and strict CFLAGS
 - infer
 - ASAN
 
-### Optional Static Analysis tools
+#### Optional Static Analysis tools
 
-#### Free Options
+##### Free Options
 
 - sonarqube - requires OpenJDK 17, PostgreSQL, and proper setup. (Free Community Edition. Option to purchase a more premium version.)
 - coverity - requires registering a free account and following instructions to set it up.
 
-#### Premium, Paid Options
+##### Premium, Paid Options
 
 - cppcheck premium - free trial, requires a purchase
 - pvs-studio - free trial, requires a purchase
