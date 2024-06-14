@@ -70,11 +70,13 @@ wsl --install -d <Distribution Name>
 
 Replace `<Distribution Name>` with the name of a distribution you found when you ran the command to list distributions.
 
+If you choose to change the distro away from Ubuntu in WSL, please read the disclaimer I've added to the [Linux Installation](#linux-installation) section.
+
 ### Linux Installation
 
-Here's a list of supported Linux distros. They all haven't been tested yet. The distros with a check beside them have been tested. As these distros are tested, I will specify which versions were tested.
-
 **Disclaimer**: The only distro I'm testing with WSL in Windows is Ubuntu. If you choose a different distribution in WSL, you'll have to modify the `install_linux.sh` script should there be any errors or failures during installation. Find the section that matches your chosen distro. Modify the script so that it works with your distribution.
+
+Here's a list of supported Linux distros. They all haven't been tested yet. The distros with a check beside them have been tested. As these distros are tested, I will specify which versions were tested.
 
 #### Red Hat-based
 
