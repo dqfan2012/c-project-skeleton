@@ -1,8 +1,30 @@
-# C Project Skeleton
+# Table of Contents
+
+- [Table of Contents](#table-of-contents)
+  - [C Project Skeleton](#c-project-skeleton)
+    - [Static Analysis Tools](#static-analysis-tools)
+      - [Optional Static Analysis tools](#optional-static-analysis-tools)
+        - [Free Options](#free-options)
+        - [Premium, Paid Options](#premium-paid-options)
+    - [Windows Installation](#windows-installation)
+    - [Linux Installation](#linux-installation)
+      - [Red Hat-based](#red-hat-based)
+      - [Debian-based](#debian-based)
+      - [Alpine-based](#alpine-based)
+      - [Arch-based](#arch-based)
+      - [NixOS-based](#nixos-based)
+      - [OpenSUSE-based](#opensuse-based)
+      - [Gentoo-based](#gentoo-based)
+      - [Running the Linux script](#running-the-linux-script)
+    - [MacOS Installation](#macos-installation)
+      - [Running the MacOS install script](#running-the-macos-install-script)
+      - [After running the MacOS install script](#after-running-the-macos-install-script)
+
+## C Project Skeleton
 
 This is a basic C project skeleton. This project provides sane and strict CFLAGS for compiling C programs. This project also includes several make targets to run static analysis tools to help with code saftey and code smell.
 
-## Static Analysis Tools
+### Static Analysis Tools
 
 - cppcheck - The free open source version.
 - valgrind
@@ -14,27 +36,27 @@ This is a basic C project skeleton. This project provides sane and strict CFLAGS
 - infer
 - ASAN
 
-### Optional Static Analysis tools
+#### Optional Static Analysis tools
 
-#### Free Options
+##### Free Options
 
 - sonarqube - requires OpenJDK 17, PostgreSQL, and proper setup. (Free Community Edition. Option to purchase a more premium version.)
 - coverity - requires registering a free account and following instructions to set it up.
 
-#### Premium, Paid Options
+##### Premium, Paid Options
 
 - cppcheck premium - free trial, requires a purchase
 - pvs-studio - free trial, requires a purchase
 
-## Windows Installation
+### Windows Installation
 
 The Windows installation scripts are in poor condition. I will update this README file when the Windows script is ready.
 
-## Linux Installation
+### Linux Installation
 
 Here's a list of supported Linux distros. They all haven't been tested yet. The distros with a check beside them have been tested. As these distros are tested, I will specify which versions were tested.
 
-Red Hat-based:
+#### Red Hat-based
 
 - [ ] RHEL
 - [ ] CentOS
@@ -42,7 +64,7 @@ Red Hat-based:
 - [ ] Rocky Linux
 - [ ] AlmaLinux
 
-Debian-based:
+#### Debian-based
 
 - [ ] Debian
 - [ ] Ubuntu
@@ -52,11 +74,11 @@ Debian-based:
 - [ ] MX Linux
 - [ ] Zorin OS
 
-Alpine-based:
+#### Alpine-based
 
 - [ ] Alpine Linux
 
-Arch-based:
+#### Arch-based
 
 - [ ] Arch Linux
 - [ ] Manjaro
@@ -64,26 +86,36 @@ Arch-based:
 - [ ] ArcoLinux
 - [ ] EndeavourOS
 
-NixOS-based:
+#### NixOS-based
 
 - [ ] NixOS
 
-OpenSUSE-based:
+#### OpenSUSE-based
 
 - [ ] openSUSE
 - [ ] SUSE
 - [ ] SLES
 - [ ] GeckoLinux
 
-Gentoo-based:
+#### Gentoo-based
 
 - [ ] Gentoo
 
-### Running the Linux script
+#### Running the Linux script
 
 Make the installation script executable:
 
-## MacOS Installation
+```bash
+chmod +x ./install_linux.sh
+```
+
+Then run the installation script.
+
+```bash
+./install_linux.sh
+```
+
+### MacOS Installation
 
 Install Xcode and the Xcode commandline tools. Install Xcode through the App Store. You can install the commandline tools with the following cli command:
 
@@ -97,7 +129,7 @@ Install Homebrew before running the script. Here's how you can install homebrew:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### Running the MacOS install script
+#### Running the MacOS install script
 
 ```bash
 chmod +x ./install_macos.sh
@@ -109,7 +141,7 @@ Then run the script:
 ./install_linux.sh
 ```
 
-### After running the MacOS install script
+#### After running the MacOS install script
 
 Be sure to follow these instructions to setup postgresql properly:
 
