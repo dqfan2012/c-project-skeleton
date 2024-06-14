@@ -86,6 +86,7 @@ Here's a list of supported Linux distros. They all haven't been tested yet. The 
 
 - [ ] Debian
 - [ ] Ubuntu
+- [ ] Ubuntu in WSL
 - [ ] Linux Mint
 - [ ] Pop!_OS
 - [ ] Kali Linux
