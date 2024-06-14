@@ -46,8 +46,7 @@ endif
 
 # Static analysis tools
 CPPCHECK = cppcheck
-VALGRIND = valgrind
-VALGRIND_MEMCHECK = valgrind --leak-check=full --show-leak-kinds=all
+VALGRIND_MEMCHECK = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
 VALGRIND_HELGRIND = valgrind --tool=helgrind
 VALGRIND_DRD = valgrind --tool=drd
 VALGRIND_CALLGRIND = valgrind --tool=callgrind
@@ -88,9 +87,6 @@ cppcheck:
     $(CPPCHECK) --enable=all --inconclusive --std=c17 --quiet $(SRCS)
 
 # Run valgrind
-valgrind: $(EXEC)
-    $(VALGRIND) --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(EXEC)
-
 valgrind-memcheck: $(EXEC)
 	$(VALGRIND_MEMCHECK) ./$(EXEC)
 
