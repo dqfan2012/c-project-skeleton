@@ -50,7 +50,25 @@ This is a basic C project skeleton. This project provides sane and strict CFLAGS
 
 ### Windows Installation
 
-The Windows installation scripts are in poor condition. I will update this README file when the Windows script is ready.
+For Windows users, it is recommended to use WSL 2 with Ubuntu and run the `install_linux.sh` script. This will provide a consistent development environment and simplify the setup process.
+
+You can install WSL by following these steps. Open Command Prompt or Powershell in **administrator** mode and run the following command:
+
+```powershell
+wsl --install
+```
+
+The default distro installed with WSL is Ubuntu. If you don't like Ubuntu, you can see a list of available distros by running the following command:
+
+`wsl --list --online` or `wsl -l -o`
+
+You can change the default Linux distro by running the following command:
+
+```powershell
+wsl --install -d <Distribution Name>
+```
+
+Replace `<Distribution Name>` with the name of a distribution you found when you ran the command to list distributions.
 
 ### Linux Installation
 
