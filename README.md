@@ -74,6 +74,8 @@ Replace `<Distribution Name>` with the name of a distribution you found when you
 
 Here's a list of supported Linux distros. They all haven't been tested yet. The distros with a check beside them have been tested. As these distros are tested, I will specify which versions were tested.
 
+**Disclaimer**: The only distro I'm testing with WSL in Windows is Ubuntu. If you choose a different distribution, you'll have to modify the script that matches the distro should there be any errors or failures.
+
 #### Red Hat-based
 
 - [ ] RHEL
