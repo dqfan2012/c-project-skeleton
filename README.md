@@ -26,6 +26,10 @@ This is a basic C project skeleton. This project provides sane and strict CFLAGS
 - cppcheck premium - free trial, requires a purchase
 - pvs-studio - free trial, requires a purchase
 
+## Windows Installation
+
+The Windows installation scripts are in poor condition. I will update this README file when the Windows script is ready.
+
 ## Linux Installation
 
 Here's a list of supported Linux distros. They all haven't been tested yet. The distros with a check beside them have been tested. As these distros are tested, I will specify which versions were tested.
