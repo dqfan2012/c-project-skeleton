@@ -58,7 +58,15 @@ INFER = infer
 ASAN_FLAGS = -fsanitize=address -fno-omit-frame-pointer
 
 # Default target
-all: $(EXEC)
+all: debug
+
+# Compile target for debug build
+debug: CFLAGS = $(DEBUG_CFLAGS)
+debug: $(EXEC)
+
+# Compile target for production build
+release: CFLAGS = $(PROD_CFLAGS)
+release: $(EXEC)
 
 # Compile target
 $(EXEC): $(OBJS)
