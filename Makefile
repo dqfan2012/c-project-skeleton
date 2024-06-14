@@ -47,6 +47,13 @@ endif
 # Static analysis tools
 CPPCHECK = cppcheck
 VALGRIND = valgrind
+VALGRIND_MEMCHECK = valgrind --leak-check=full --show-leak-kinds=all
+VALGRIND_HELGRIND = valgrind --tool=helgrind
+VALGRIND_DRD = valgrind --tool=drd
+VALGRIND_CALLGRIND = valgrind --tool=callgrind
+VALGRIND_MASSIF = valgrind --tool=massif
+VALGRIND_CACHEGRIND = valgrind --tool=cachegrind
+VALGRIND_SGCHECK = valgrind --tool=exp-sgcheck
 LEAKS = leaks
 CLANG_ANALYZER = clang --analyze
 CLANG_TIDY = clang-tidy
@@ -83,6 +90,27 @@ cppcheck:
 # Run valgrind
 valgrind: $(EXEC)
     $(VALGRIND) --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(EXEC)
+
+valgrind-memcheck: $(EXEC)
+	$(VALGRIND_MEMCHECK) ./$(EXEC)
+
+valgrind-helgrind: $(EXEC)
+	$(VALGRIND_HELGRIND) ./$(EXEC)
+
+valgrind-drd: $(EXEC)
+	$(VALGRIND_DRD) ./$(EXEC)
+
+valgrind-callgrind: $(EXEC)
+	$(VALGRIND_CALLGRIND) ./$(EXEC)
+
+valgrind-massif: $(EXEC)
+	$(VALGRIND_MASSIF) ./$(EXEC)
+
+valgrind-cachegrind: $(EXEC)
+	$(VALGRIND_CACHEGRIND) ./$(EXEC)
+
+valgrind-sgcheck: $(EXEC)
+	$(VALGRIND_SGCHECK) ./$(EXEC)
 
 # Run leaks on macOS
 leaks: $(EXEC)
