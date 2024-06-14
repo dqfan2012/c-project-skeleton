@@ -1,0 +1,11 @@
+# Install static analysis tools for Windows using PowerShell and Chocolatey
+
+# Check for Chocolatey and install if not present
+if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+}
+
+# Install tools
+choco install -y make cppcheck
+
+Write-Host "Static analysis tools installed successfully."
