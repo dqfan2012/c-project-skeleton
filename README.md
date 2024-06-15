@@ -108,7 +108,9 @@ I used the following specifications for **all** VMs:
   - Debian 12.5 amd64
 - [ ] Ubuntu
   - Ubuntu 22.04.4 LTS amd64
+  - Ubuntu 22.04 LTS arm64
   - Ubuntu 24.04 LTS amd64
+  - Ubuntu 24.04 LTS arm64
 - [ ] Ubuntu in WSL
 - [ ] Linux Mint
   - Linux Mint 20.3 Cinnamon amd64
