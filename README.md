@@ -105,20 +105,20 @@ I used the following specifications for **all** VMs:
 #### Debian-based
 
 - [ ] Debian
-  - Debian 12.5 amd64
+  - Debian 12.5 amd64 :white_check_mark:
   - Debian 12.5 arm64
 - [ ] Ubuntu
-  - Ubuntu 22.04.4 LTS amd64
+  - Ubuntu 22.04.4 LTS amd64 :white_check_mark:
   - Ubuntu 22.04 LTS arm64
-  - Ubuntu 24.04 LTS amd64
+  - Ubuntu 24.04 LTS amd64 :white_check_mark:
   - Ubuntu 24.04 LTS arm64
 - [ ] Ubuntu in WSL
   - Ubuntu 24.04 LTS amd64
 - [ ] Linux Mint
-  - Linux Mint 20.3 Cinnamon amd64
+  - Linux Mint 20.3 Cinnamon amd64 :white_check_mark:
   - Linux Mint 21.3 Cinnamon amd64
 - [x] Pop!_OS
-  - Pop!_OS 22.04 LTS amd64
+  - Pop!_OS 22.04 LTS amd64 :white_check_mark:
 - [ ] Kali Linux
 - [ ] MX Linux
 - [ ] Zorin OS
