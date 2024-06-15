@@ -112,9 +112,9 @@ I used the following specifications for **all** VMs:
   - Ubuntu 24.04 LTS arm64
 - [ ] Ubuntu in WSL
   - Ubuntu 24.04 LTS amd64
-- [ ] Linux Mint
+- [x] Linux Mint
   - Linux Mint 20.3 Cinnamon amd64 :x: - the latest PostgreSQL available here is 12. The installer failed when trying to install PostgreSQL 16. You may be able to find a guide online to install PostgreSQL 16 on this version of Linux Mint. Highly advise going with the latest version instead of this version.
-  - Linux Mint 21.3 Cinnamon amd64
+  - Linux Mint 21.3 Cinnamon amd64 :white_check_mark: - You'll have to follow [this guide](https://medium.com/@mglaving/how-to-install-postgresql-16-on-linux-mint-21-d58e875fe7c6) to install PostgreSQL 16o n this version of Linux Mint.
 - [x] Pop!_OS
   - Pop!_OS 22.04 LTS amd64 :white_check_mark:
 - [ ] Kali Linux
