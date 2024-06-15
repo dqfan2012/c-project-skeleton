@@ -111,6 +111,8 @@ I used the following specifications for **all** VMs:
   - Ubuntu 24.04 LTS amd64
 - [ ] Ubuntu in WSL
 - [ ] Linux Mint
+  - Linux Mint 20.3 Cinnamon amd64
+  - Linux Mint 21.3 Cinnamon amd64
 - [ ] Pop!_OS
 - [ ] Kali Linux
 - [ ] MX Linux
