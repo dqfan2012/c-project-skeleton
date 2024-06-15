@@ -57,6 +57,7 @@
 *.su
 *.idb
 *.pdb
+*.plist
 
 # Kernel Module Compile Results
 *.mod*
