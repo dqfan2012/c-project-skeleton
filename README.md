@@ -18,7 +18,9 @@
       - [Running the Linux script](#running-the-linux-script)
     - [MacOS Installation](#macos-installation)
       - [Running the MacOS install script](#running-the-macos-install-script)
-      - [After running the MacOS install script](#after-running-the-macos-install-script)
+    - [If you want to use Sonarqube with Sonar Scanner](#if-you-want-to-use-sonarqube-with-sonar-scanner)
+      - [Linux Setup Instructions](#linux-setup-instructions)
+      - [MacOS Setup Instructions](#macos-setup-instructions)
 
 ## C Project Skeleton
 
@@ -88,7 +90,7 @@ Here's a list of supported Linux distros. They all haven't been tested yet. The 
 
 #### Debian-based
 
-- [ ] Debian
+- [ ] Debian - Debian 12.5 Bookworm amd64
 - [ ] Ubuntu
 - [ ] Ubuntu in WSL
 - [ ] Linux Mint
@@ -164,9 +166,21 @@ Then run the script:
 ./install_linux.sh
 ```
 
-#### After running the MacOS install script
+### If you want to use Sonarqube locally with Sonar Scanner
 
-Be sure to follow these instructions to setup postgresql properly:
+Be sure to follow these instructions to setup postgresql and SonarQube properly.
+
+#### Linux Setup Instructions
+
+I'm including instructions for installing PostgreSQL on Ubuntu 24.04 LTS and how to install SonarQube on Ubuntu 22.04 LTS. I couldn't find a document outlining the installation process for SonarQube on Ubuntu 24.04 LTS. However, the process for both should be identical. I used articles from Vultr. You don't have to setup a Vultr server. The instructions can be applied to a local installation of Ubuntu.
+
+Note: A simple Google search will show you how to setup and configure these tools on your distro of choice.
+
+[How to install PostgreSQL on Ubuntu 24.04](https://docs.vultr.com/how-to-install-postgresql-on-ubuntu-24-04)
+
+[How to use SonarQube on Ubuntu 22.04 LTS](https://docs.vultr.com/how-to-use-sonarqube-on-ubuntu-22-04-lts)
+
+#### MacOS Setup Instructions
 
 [PostgreSQL 16 Setup Instructions](https://medium.com/@abhinavsinha_/download-and-configure-postgresql16-on-macos-d41dc49217b6)
 
