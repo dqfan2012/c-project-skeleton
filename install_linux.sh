@@ -13,7 +13,7 @@ install_redhat_fedora() {
 install_debian() {
     sudo apt-get update -y
     # Install build tools
-    sudo apt-get install -y build-essential make cmake clang clang-tidy clang-tools llvm lldb gdb binutils libboost-dev wget curl vim neovim zed
+    sudo apt-get install -y build-essential make cmake clang clang-tidy clang-tools llvm lldb gdb binutils libglib2.0-dev libboost-dev wget curl vim neovim zed
     # Install static analysis tools
     sudo apt-gget install -y cppcheck valgrind flawfinder
     wget -O sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
