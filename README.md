@@ -97,12 +97,20 @@ I used the following specifications for **all** VMs:
 #### Red Hat-based
 
 - [ ] RHEL
+  - RHEL 9.4 64-bit amd64
+  - RHEL 9.4 64-bit aarch64
 - [ ] CentOS
+  - CentOS 9 64-bit amd64
+  - CentOS 9 64-bit aarch64
 - [ ] Fedora
   - Fedora Workstation 40 64-bit amd64 :white_check_mark: - SonarQube Scanner will have to be downloaded and installed manually.
   - Fedora Workstation 40 64-bit aarch64
 - [ ] Rocky Linux
+  - Rocky Linux v9.4 64-bit amd64
+  - Rocky Linux v9.4 64-bit aarch64
 - [ ] AlmaLinux
+  - AlmaLinux 9 64-bit amd64
+  - AlmaLinux 9 64-bit aarch64
 
 #### Debian-based
 
