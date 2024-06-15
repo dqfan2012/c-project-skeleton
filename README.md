@@ -115,7 +115,7 @@ I used the following specifications for **all** VMs:
 - [ ] Ubuntu in WSL
   - Ubuntu 24.04 LTS amd64
 - [ ] Linux Mint
-  - Linux Mint 20.3 Cinnamon amd64 :white_check_mark: - latest PostgreSQL available here is 12. The installer failed for PostgreSQL 16.
+  - Linux Mint 20.3 Cinnamon amd64 :white_check_mark: - latest PostgreSQL available here is 12. The installer failed for PostgreSQL 16. You may be able to find a guide online to install PostgreSQL 16 on this version of Linux Mint.
   - Linux Mint 21.3 Cinnamon amd64
 - [x] Pop!_OS
   - Pop!_OS 22.04 LTS amd64 :white_check_mark:
