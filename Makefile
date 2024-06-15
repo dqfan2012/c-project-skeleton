@@ -22,10 +22,15 @@ LDFLAGS =
 
 # For Windows use MSYS2, cygwin, or WSL 2
 ifeq ($(OS), Windows_NT)
+    # Uncomment the following line if you prefer clang to gcc
+    # If using clang, be sure to use llvm and lldb
+    # clang is possible through WSL and *nix Windows environments
+    # like cygwin or msys2
+    # CC = clang
+    # Add Windows-specific flags or libraries if needed
     COMMON_CFLAGS += -D_WIN32
     DEBUG_CFLAGS +=
     PROD_CFLAGS +=
-    # Add Windows-specific flags or libraries if needed
     LDFLAGS +=
     LDLIBS += -lws2_32
 else ifeq ($(OS), Linux)
@@ -33,17 +38,17 @@ else ifeq ($(OS), Linux)
     # Uncomment the following line if you prefer clang to gcc
     # If using clang, be sure to use llvm and lldb
     # CC = clang
+    # Add Linux-specific flags or libraries if needed
     DEBUG_CFLAGS +=
     PROD_CFLAGS +=
-    # Add Linux-specific flags or libraries if needed
     LDFLAGS +=
     LDLIBS +=
 else ifeq ($(OS), Darwin)
     IS_MACOS = 1
     CC = clang
+    # Add Mac-specific flags or libraries if needed
     DEBUG_CFLAGS += -Wno-gnu-folding-constant
     PROD_CFLAGS +=
-    # Add Mac-specific flags or libraries if needed
     LDFLAGS +=
     LDLIBS +=
 endif
