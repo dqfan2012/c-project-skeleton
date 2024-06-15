@@ -201,4 +201,4 @@ asan: clean $(EXEC)
 
 # Clean up
 clean:
-    rm -f $(OBJS) $(EXEC)
+	rm -f $(OBJS) $(EXEC) $(EXEC).plist
