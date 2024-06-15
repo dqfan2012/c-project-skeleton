@@ -168,7 +168,7 @@ Then run the script:
 
 ### If you want to use Sonarqube locally with Sonar Scanner
 
-Be sure to follow these instructions to setup postgresql and SonarQube properly.
+Be sure to follow these instructions to setup PostgreSQL and SonarQube properly.
 
 #### Linux Setup Instructions
 
