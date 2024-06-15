@@ -29,13 +29,6 @@ install_debian() {
     # Manually download the sonarqube files. Follow a tutorial for configuring both postgresql 16 and sonarqube properly.
 }
 
-# Function to install packages for Alpine-based distributions
-install_alpine() {
-    sudo apk update
-    sudo apk add alpine-sdk cppcheck valgrind flawfinder
-    sudo apk add sonar-scanner
-}
-
 # Function to install packages for Arch-based distributions
 install_arch() {
     sudo pacman -Syu --noconfirm
