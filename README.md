@@ -106,6 +106,7 @@ I used the following specifications for **all** VMs:
 
 - [ ] Debian
   - Debian 12.5 amd64
+  - Debian 12.5 arm64
 - [ ] Ubuntu
   - Ubuntu 22.04.4 LTS amd64
   - Ubuntu 22.04 LTS arm64
