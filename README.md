@@ -97,6 +97,7 @@ I used the following specifications for **all** VMs:
 - [ ] RHEL
 - [ ] CentOS
 - [ ] Fedora
+  - Fedora Workstation 40 64-bit amd64
 - [ ] Rocky Linux
 - [ ] AlmaLinux
 
