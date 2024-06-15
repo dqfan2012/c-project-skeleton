@@ -3,10 +3,8 @@
 # Function to install packages for Red Hat and Fedora-based distributions
 install_redhat_fedora() {
     sudo dnf group install -y "Development Tools" "Development Libraries"
-    sudo dnf install -y llvm-toolset
-    sudo dnf install -y cmake gdb cppcheck valgrind clang clang-tidy flawfinder lldb make
-    sudo dnf install -y epel-release
-    sudo dnf install -y sonar-scanner
+    sudo dnf install -y clang clang-tools-extra llvm lldb lldb-devel cmake rust rust-gdb rust-lldb golang
+    sudo dnf install -y cppcheck valgrind flawfinder
 }
 
 # Function to install packages for Debian-based distributions
