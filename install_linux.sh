@@ -60,7 +60,7 @@ install_redhat_fedora() {
 
     # Sonar Scanner
     wget -O sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.0.0.4432-linux.zip
-    unzip sonar-scanner-cli.zip -d /opt/sonar-scanner
+    sudo unzip sonar-scanner-cli.zip -d /opt/sonar-scanner
     sudo ln -s /opt/sonar-scanner/bin/sonar-scanner /usr/local/bin/sonar-scanner
 }
 
@@ -75,7 +75,7 @@ install_debian() {
     sudo apt-get install -y cppcheck valgrind flawfinder
     # Sonar Scanner
     wget -O sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.0.0.4432-linux.zip
-    unzip sonar-scanner-cli.zip -d /opt/sonar-scanner
+    sudo unzip sonar-scanner-cli.zip -d /opt/sonar-scanner
     sudo ln -s /opt/sonar-scanner/bin/sonar-scanner /usr/local/bin/sonar-scanner
     # If you want to install sonarqube, install sonarqube prereqs first. Sonarqube relies on OpenJDK 17 and PostgreSQL
     sudo apt install -y openjdk-17-jdk postgresql-common
