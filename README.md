@@ -80,6 +80,17 @@ If you choose to change the distro away from Ubuntu in WSL, please read the disc
 
 Here's a list of supported Linux distros. They all haven't been tested yet. The distros with a check beside them have been tested. As these distros are tested, I will specify which versions were tested.
 
+#### Linux Testing Information
+
+I created virtual machines for all the distros below on two machines: one running Pop!_OS 22.04 LTS and on a MacBook Pro M3 with the Apple Silicon chip. I used VirtualBox on Pop!_OS and VMWare Fusion on the MacBook Pro. I installed 64-bit versions of the operating systems. Specifically, `x86_64`/`amd64` on Pop!_OS and `aarch64`/`arm64` on Mac if available. If `aarch64`/`arm64` versions were not available for a specific version of Linux, then that version was not tested on the Mac. I will explicitly list distro versions for each.
+
+I used the following specifications for **all** VMs:
+
+- 40 GB disk
+- 4 GB RAM
+- 2 vCPUs
+- 128MB Video Memory with 3D Acceleration enabled
+
 #### Red Hat-based
 
 - [ ] RHEL
