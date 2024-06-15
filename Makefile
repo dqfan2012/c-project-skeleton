@@ -14,15 +14,6 @@ CC = gcc
 COMMON_CFLAGS = -std=c17 -Wall -Werror -Wextra -Wno-sign-compare \
                 -Wno-unused-parameter -Wno-unused-variable -Wshadow
 
-ifeq ($(STRICT),true)
-	COMMON_CFLAGS += -pedantic -Wconversion -Wformat=2 -Wmissing-include-dirs -Wswitch-enum \
-                    -Wfloat-equal -Wredundant-decls -Wnull-dereference -Wold-style-definition
-
-	ifeq ($(CC),gcc)
-		COMMON_CFLAGS += -Wlogical-op
-	endif
-endif
-
 DEBUG_CFLAGS = -ferror-limit=1 -gdwarf-4 -g3 -O0 $(COMMON_CFLAGS) -Wno-gnu-folding-constant
 PROD_CFLAGS = -O2 $(COMMON_CFLAGS)
 LDLIBS = 
@@ -47,6 +38,16 @@ else ifeq ($(OS), Darwin)
     PROD_CFLAGS +=
     LDFLAGS =
     # Example: LDLIBS += -lsomeMacSpecificLib
+endif
+
+# Set the stricter CFLAGS if the strict var has been set to true
+ifeq ($(STRICT),true)
+	COMMON_CFLAGS += -pedantic -Wconversion -Wformat=2 -Wmissing-include-dirs -Wswitch-enum \
+                    -Wfloat-equal -Wredundant-decls -Wnull-dereference -Wold-style-definition
+
+	ifeq ($(CC),gcc)
+		COMMON_CFLAGS += -Wlogical-op
+	endif
 endif
 
 # Static analysis tools
