@@ -8,6 +8,7 @@
         - [Premium, Paid Options](#premium-paid-options)
     - [Windows Installation](#windows-installation)
     - [Linux Installation](#linux-installation)
+      - [Linux Testing Information](#linux-testing-information)
       - [Red Hat-based](#red-hat-based)
       - [Debian-based](#debian-based)
       - [Alpine-based](#alpine-based)
