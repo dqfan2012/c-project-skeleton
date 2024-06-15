@@ -104,7 +104,7 @@ if [ -f /etc/os-release ]; then
         rhel|centos|redhat|fedora|rocky|almalinux)
             install_redhat_fedora "$ID"
             ;;
-        debian|ubuntu|linuxmint|pop|kali|mx|zorin)
+        debian|ubuntu|linuxmint|pop|kali|zorin)
             install_debian
             ;;
         arch|manjaro|garuda|arcolinux|endeavouros)
