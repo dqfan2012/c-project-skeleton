@@ -14,30 +14,38 @@ CC = gcc
 COMMON_CFLAGS = -std=c17 -Wall -Werror -Wextra -Wno-sign-compare \
                 -Wno-unused-parameter -Wno-unused-variable -Wshadow
 
-DEBUG_CFLAGS = -ferror-limit=1 -gdwarf-4 -g3 -O0 $(COMMON_CFLAGS) -Wno-gnu-folding-constant
-PROD_CFLAGS = -O2 $(COMMON_CFLAGS)
+DEBUG_CFLAGS =
+PROD_CFLAGS =
+# Example: LDLIBS += -lsomeMacSpecificLib
 LDLIBS = 
 LDFLAGS =
 
 # For Windows use MSYS2, cygwin, or WSL 2
 ifeq ($(OS), Windows_NT)
     COMMON_CFLAGS += -D_WIN32
-    LDLIBS += -lws2_32
+    DEBUG_CFLAGS +=
+    PROD_CFLAGS +=
     # Add Windows-specific flags or libraries if needed
+    LDFLAGS +=
+    LDLIBS += -lws2_32
 else ifeq ($(OS), Linux)
     IS_LINUX = 1
-    # Add Linux-specific flags or libraries if needed
-    # Example: LDLIBS += -lsomeLinuxSpecificLib
     # Uncomment the following line if you prefer clang to gcc
     # If using clang, be sure to use llvm and lldb
     # CC = clang
+    DEBUG_CFLAGS +=
+    PROD_CFLAGS +=
+    # Add Linux-specific flags or libraries if needed
+    LDFLAGS +=
+    LDLIBS +=
 else ifeq ($(OS), Darwin)
     IS_MACOS = 1
     CC = clang
     DEBUG_CFLAGS += -Wno-gnu-folding-constant
     PROD_CFLAGS +=
-    LDFLAGS =
-    # Example: LDLIBS += -lsomeMacSpecificLib
+    # Add Mac-specific flags or libraries if needed
+    LDFLAGS +=
+    LDLIBS +=
 endif
 
 # Set the stricter CFLAGS if the strict var has been set to true
@@ -51,6 +59,9 @@ ifeq ($(STRICT),true)
 		COMMON_CFLAGS += -Wlogical-not-parentheses -Wlogical-op-parentheses
 	endif
 endif
+
+DEBUG_CFLAGS += -ferror-limit=1 -gdwarf-4 -g3 -O0 $(COMMON_CFLAGS) -Wno-gnu-folding-constant
+PROD_CFLAGS += -O2 $(COMMON_CFLAGS)
 
 # Static analysis tools
 CPPCHECK = cppcheck
