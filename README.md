@@ -130,7 +130,6 @@ I used the following specifications for **all** VMs:
 - [x] Pop!_OS
   - Pop!_OS 22.04 LTS amd64 :white_check_mark:
 - [ ] Kali Linux
-- [ ] MX Linux
 - [ ] Zorin OS
 
 #### Arch-based
