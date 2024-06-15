@@ -47,6 +47,8 @@ ifeq ($(STRICT),true)
 
 	ifeq ($(CC),gcc)
 		COMMON_CFLAGS += -Wlogical-op
+	else ifeq ($(CC),clang)
+		COMMON_CFLAGS += -Wlogical-not-parentheses -Wlogical-op-parentheses
 	endif
 endif
 
