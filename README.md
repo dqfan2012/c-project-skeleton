@@ -90,8 +90,11 @@ Here's a list of supported Linux distros. They all haven't been tested yet. The 
 
 #### Debian-based
 
-- [ ] Debian - Debian 12.5 amd64
-- [ ] Ubuntu - Ubuntu 22.04.4 LTS amd64, Ubuntu 24.04 LTS amd64
+- [ ] Debian
+  - Debian 12.5 amd64
+- [ ] Ubuntu
+  - Ubuntu 22.04.4 LTS amd64
+  - Ubuntu 24.04 LTS amd64
 - [ ] Ubuntu in WSL
 - [ ] Linux Mint
 - [ ] Pop!_OS
