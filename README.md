@@ -184,6 +184,4 @@ Note: A simple Google search will show you how to setup and configure these tool
 
 [PostgreSQL 16 Setup Instructions](https://medium.com/@abhinavsinha_/download-and-configure-postgresql16-on-macos-d41dc49217b6)
 
-Be sure to follow these instructions to setup the free version of sonarqube locally:
-
 [Setup Sonarqube](https://techblost.com/how-to-setup-sonarqube-locally-on-mac/)
