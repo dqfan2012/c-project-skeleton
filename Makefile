@@ -65,7 +65,14 @@ ifeq ($(STRICT),true)
 	endif
 endif
 
-DEBUG_CFLAGS += -ferror-limit=1 -gdwarf-4 -g3 -O0 $(COMMON_CFLAGS) -Wno-gnu-folding-constant
+# Set compiler-specific debugging flags
+ifeq ($(CC),gcc)
+	DEBUG_CFLAGS += -fmax-errors=1
+else ifeq ($(CC),clang)
+	DEBUG_CFLAGS += -ferror-limit=1
+endif
+
+DEBUG_CFLAGS += -gdwarf-4 -g3 -O0 $(COMMON_CFLAGS) -Wno-gnu-folding-constant
 PROD_CFLAGS += -O2 $(COMMON_CFLAGS)
 
 # Static analysis tools
