@@ -33,7 +33,7 @@ This is a basic C project skeleton. This project provides sane and strict CFLAGS
 - clang-analyze
 - clang-tidy
 - flawfinder
-- sonarqube-scanner
+- sonarqube-scanner - Note: This is not the same thing as `sonarqube`. It works with `sonarqube` when you have `sonarqube` installed.
 - infer
 - ASAN
 
@@ -42,6 +42,7 @@ This is a basic C project skeleton. This project provides sane and strict CFLAGS
 ##### Free Options
 
 - sonarqube - requires OpenJDK 17, PostgreSQL, and proper setup. (Free Community Edition. Option to purchase a more premium version.)
+  - This is not the same as `sonarqube-scanner`. This works with `sonarqube-scanner` when it's installed along side the `sonarqube-scanner`.
   - This has to be downloaded manually for Fedora.
 - coverity - requires registering a free account and following instructions to set it up.
 
