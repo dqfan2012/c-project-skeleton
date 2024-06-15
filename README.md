@@ -113,7 +113,7 @@ I used the following specifications for **all** VMs:
 - [ ] Linux Mint
   - Linux Mint 20.3 Cinnamon amd64
   - Linux Mint 21.3 Cinnamon amd64
-- [/] Pop!_OS
+- [x] Pop!_OS
   - Pop!_OS 22.04 LTS amd64
 - [ ] Kali Linux
 - [ ] MX Linux
