@@ -17,7 +17,7 @@ install_debian() {
     # Install build tools
     sudo apt-get install -y build-essential make cmake clang clang-tidy clang-tools llvm lldb gdb binutils libglib2.0-dev libboost-dev wget vim neovim zed 
     # Install static analysis tools
-    sudo apt-gget install -y cppcheck valgrind flawfinder
+    sudo apt-get install -y cppcheck valgrind flawfinder
     # Sonar Scanner
     wget -O sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
     unzip sonar-scanner-cli.zip -d /opt/sonar-scanner
