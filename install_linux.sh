@@ -56,6 +56,7 @@ install_redhat_fedora() {
         sudo systemctl enable --now snapd.socket
         sudo ln -s /var/lib/snapd/snap /snap
         echo 'export PATH=$PATH:/var/lib/snapd/snap/bin' >> $HOME/.bashrc
+        source $HOME/.bashrc
         sudo snap install flawfinder
     fi
 }
