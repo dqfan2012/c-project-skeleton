@@ -139,10 +139,6 @@ I used the following specifications for **all** VMs:
 - [ ] SLES
 - [ ] GeckoLinux
 
-#### Gentoo-based
-
-- [ ] Gentoo
-
 #### Running the Linux script
 
 Make the installation script executable:
