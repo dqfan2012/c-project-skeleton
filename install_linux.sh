@@ -38,7 +38,7 @@ install_redhat_fedora() {
             # PostgreSQL installation for Fedora
             sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/F-40-x86_64/pgdg-fedora-repo-latest.noarch.rpm
             sudo dnf upgrade
-            sudo dnf install -y java-17-openjdk postgresql16-server cppcheck flawfinder
+            sudo dnf install -y wget java-17-openjdk postgresql16-server cppcheck flawfinder
             sudo /usr/pgsql-16/bin/postgresql-16-setup initdb
             sudo systemctl enable postgresql-16
             sudo systemctl start postgresql-16
@@ -49,16 +49,19 @@ install_redhat_fedora() {
             ;;
     esac
 
-    # Install the remaining static analysis tools except sonar-scanner
-    # sonar-scanner requires manual installation.
     if [[ "$distro" != "fedora" ]]; then
-        sudo dnf install -y cppcheck snapd java-17-openjdk
+        sudo dnf install -y wget cppcheck snapd java-17-openjdk
         sudo systemctl enable --now snapd.socket
         sudo ln -s /var/lib/snapd/snap /snap
         echo 'export PATH=$PATH:/var/lib/snapd/snap/bin' >> $HOME/.bashrc
         source $HOME/.bashrc
         sudo snap install flawfinder
     fi
+
+    # Sonar Scanner
+    wget -O sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.0.0.4432-linux.zip
+    unzip sonar-scanner-cli.zip -d /opt/sonar-scanner
+    sudo ln -s /opt/sonar-scanner/bin/sonar-scanner /usr/local/bin/sonar-scanner
 }
 
 # Function to install packages for Debian-based distributions
@@ -71,7 +74,7 @@ install_debian() {
     # Install static analysis tools
     sudo apt-get install -y cppcheck valgrind flawfinder
     # Sonar Scanner
-    wget -O sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
+    wget -O sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.0.0.4432-linux.zip
     unzip sonar-scanner-cli.zip -d /opt/sonar-scanner
     sudo ln -s /opt/sonar-scanner/bin/sonar-scanner /usr/local/bin/sonar-scanner
     # If you want to install sonarqube, install sonarqube prereqs first. Sonarqube relies on OpenJDK 17 and PostgreSQL
