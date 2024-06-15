@@ -42,6 +42,7 @@ This is a basic C project skeleton. This project provides sane and strict CFLAGS
 ##### Free Options
 
 - sonarqube - requires OpenJDK 17, PostgreSQL, and proper setup. (Free Community Edition. Option to purchase a more premium version.)
+  - This has to be downloaded manually for Fedora.
 - coverity - requires registering a free account and following instructions to set it up.
 
 ##### Premium, Paid Options
