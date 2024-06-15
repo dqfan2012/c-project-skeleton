@@ -11,11 +11,9 @@
       - [Linux Testing Information](#linux-testing-information)
       - [Red Hat-based](#red-hat-based)
       - [Debian-based](#debian-based)
-      - [Alpine-based](#alpine-based)
       - [Arch-based](#arch-based)
       - [NixOS-based](#nixos-based)
       - [OpenSUSE-based](#opensuse-based)
-      - [Gentoo-based](#gentoo-based)
       - [Running the Linux script](#running-the-linux-script)
     - [MacOS Installation](#macos-installation)
       - [Running the MacOS install script](#running-the-macos-install-script)
@@ -122,12 +120,6 @@ I used the following specifications for **all** VMs:
 - [ ] Kali Linux
 - [ ] MX Linux
 - [ ] Zorin OS
-
-#### Alpine-based
-
-- [ ] Alpine Linux
-  - Alpine 3.20 Extended amd64
-  - Alpine 3.20 Standard aarch64
 
 #### Arch-based
 
