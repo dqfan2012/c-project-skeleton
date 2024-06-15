@@ -117,7 +117,7 @@ $(EXEC): $(OBJS)
 
 # Run cppcheck
 cppcheck:
-    $(CPPCHECK) --enable=all --inconclusive --std=c17 --quiet $(SRCS)
+	$(CPPCHECK) --enable=all --inconclusive --std=c17 --suppress=missingIncludeSystem --quiet $(SRCS)
 
 # Run valgrind
 valgrind-memcheck: $(EXEC)
