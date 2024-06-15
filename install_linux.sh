@@ -11,9 +11,11 @@ install_redhat_fedora() {
 
 # Function to install packages for Debian-based distributions
 install_debian() {
-    sudo apt-get update
-    sudo apt-get install -y cppcheck valgrind clang clang-tidy flawfinder lldb make
-    sudo apt-get install -y wget
+    sudo apt-get update -y
+    # Install build tools
+    sudo apt-get install -y build-essential make cmake clang clang-tidy clang-tools llvm lldb gdb binutils libboost-dev wget curl vim neovim zed
+    # Install static analysis tools
+    sudo apt-gget install -y cppcheck valgrind flawfinder
     wget -O sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
     unzip sonar-scanner-cli.zip -d /opt/sonar-scanner
     sudo ln -s /opt/sonar-scanner/bin/sonar-scanner /usr/local/bin/sonar-scanner
