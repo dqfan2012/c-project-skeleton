@@ -15,7 +15,7 @@ install_debian() {
     # For adding apt repositories
     sudo apt install -y curl ca-certificates
     # Install build tools
-    sudo apt-get install -y build-essential make cmake clang clang-tidy clang-tools llvm lldb gdb binutils libglib2.0-dev libboost-dev wget vim neovim zed 
+    sudo apt-get install -y build-essential make cmake clang clang-tidy clang-tools llvm lldb gdb binutils libglib2.0-dev libboost-dev wget vim neovim 
     # Install static analysis tools
     sudo apt-get install -y cppcheck valgrind flawfinder
     # Sonar Scanner
