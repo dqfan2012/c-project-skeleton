@@ -125,6 +125,8 @@ I used the following specifications for **all** VMs:
 #### Alpine-based
 
 - [ ] Alpine Linux
+  - Alpine 3.20 Extended amd64
+  - Alpine 3.20 Standard aarch64
 
 #### Arch-based
 
