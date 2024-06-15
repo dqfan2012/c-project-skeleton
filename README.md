@@ -99,6 +99,7 @@ I used the following specifications for **all** VMs:
 - [ ] CentOS
 - [ ] Fedora
   - Fedora Workstation 40 64-bit amd64 :white_check_mark: - SonarQube Scanner will have to be downloaded and installed manually.
+  - Fedora Workstation 40 64-bit aarch64
 - [ ] Rocky Linux
 - [ ] AlmaLinux
 
