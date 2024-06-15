@@ -85,7 +85,7 @@ Here's a list of supported Linux distros. They all haven't been tested yet. The 
 
 I created virtual machines for all the distros below on two machines: one running Pop!_OS 22.04 LTS and on a MacBook Pro M3 with the Apple Silicon chip. I used VirtualBox on Pop!_OS and VMWare Fusion on the MacBook Pro. I installed 64-bit versions of the operating systems. Specifically, `x86_64`/`amd64` on Pop!_OS and `aarch64`/`arm64` on Mac if available. If `aarch64`/`arm64` versions were not available for a specific version of Linux, then that version was not tested on the Mac. I will explicitly list versions tested for each distro. If I didn't list something, then it wasn't tested.
 
-The Ubuntu running in WSL 2 on Windows is the `amd64` architecture version.
+The Ubuntu running in WSL 2 on Windows is the `x86_64`/`amd64` architecture version.
 
 I used the following specifications for **all** VMs:
 
