@@ -12,13 +12,21 @@ install_redhat_fedora() {
 # Function to install packages for Debian-based distributions
 install_debian() {
     sudo apt-get update -y
+    # For adding apt repositories
+    sudo apt install -y curl ca-certificates
     # Install build tools
-    sudo apt-get install -y build-essential make cmake clang clang-tidy clang-tools llvm lldb gdb binutils libglib2.0-dev libboost-dev wget curl vim neovim zed
+    sudo apt-get install -y build-essential make cmake clang clang-tidy clang-tools llvm lldb gdb binutils libglib2.0-dev libboost-dev wget vim neovim zed 
     # Install static analysis tools
     sudo apt-gget install -y cppcheck valgrind flawfinder
+    # Sonar Scanner
     wget -O sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
     unzip sonar-scanner-cli.zip -d /opt/sonar-scanner
     sudo ln -s /opt/sonar-scanner/bin/sonar-scanner /usr/local/bin/sonar-scanner
+    # If you want to install sonarqube, install sonarqube prereqs first. Sonarqube relies on OpenJDK 17 and PostgreSQL
+    sudo apt install -y openjdk-17-jdk postgresql-common
+    sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+    sudo apt install postgresql-16
+    # Manually download the sonarqube files. Follow a tutorial for configuring both postgresql 16 and sonarqube properly.
 }
 
 # Function to install packages for Alpine-based distributions
