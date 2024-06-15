@@ -32,7 +32,7 @@ install_debian() {
 # Function to install packages for Alpine-based distributions
 install_alpine() {
     sudo apk update
-    sudo apk add cppcheck valgrind clang clang-tidy flawfinder lldb make
+    sudo apk add alpine-sdk cppcheck valgrind flawfinder
     sudo apk add sonar-scanner
 }
 
