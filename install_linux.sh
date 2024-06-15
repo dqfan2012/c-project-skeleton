@@ -56,13 +56,6 @@ install_opensuse() {
     sudo zypper install -y sonar-scanner
 }
 
-# Function to install packages for Gentoo-based distributions
-install_gentoo() {
-    sudo emerge --ask dev-util/cppcheck dev-util/valgrind sys-devel/clang dev-util/clang-tidy app-vim/flawfinder dev-util/lldb sys-devel/make
-    sudo emerge --ask dev-util/cmake sys-devel/gdb
-    sudo emerge --ask dev-java/sonar-scanner-bin
-}
-
 # Detect the Linux distribution
 if [ -f /etc/os-release ]; then
     . /etc/os-release
@@ -85,9 +78,6 @@ if [ -f /etc/os-release ]; then
             ;;
         opensuse|suse|sles|geckolinux)
             install_opensuse
-            ;;
-        gentoo)
-            install_gentoo
             ;;
         *)
             echo "Unsupported distribution: $ID"
