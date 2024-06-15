@@ -94,15 +94,15 @@ I used the following specifications for **all** VMs:
 - 2 vCPUs
 - 128MB Video Memory with 3D Acceleration enabled
 
-#### Red Hat-based
+#### Red Hat-based - SonarQube Scanner will have to be downloaded and installed manually for all redhat-based distros.
 
 - [ ] RHEL
-  - RHEL 9.4 64-bit amd64
+  - RHEL 9.4 64-bit amd64 :white_check_mark: 
   - RHEL 9.4 64-bit aarch64
 - [ ] CentOS
   - CentOS 9 64-bit amd64
   - CentOS 9 64-bit aarch64
-- [ ] Fedora - SonarQube Scanner will have to be downloaded and installed manually.
+- [ ] Fedora
   - Fedora Workstation 40 64-bit amd64 :white_check_mark: 
   - Fedora Workstation 40 64-bit aarch64
 - [ ] Rocky Linux
