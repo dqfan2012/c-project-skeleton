@@ -5,8 +5,7 @@ install_redhat_fedora() {
     local distro="$1"
 
     sudo dnf group install -y "Development Tools" "Development Libraries"
-    sudo dnf install -y clang clang-tools-extra llvm lldb lldb-devel cmake rust rust-gdb rust-lldb golang
-    sudo dnf install -y cppcheck valgrind flawfinder java-17-openjdk
+    sudo dnf install -y clang clang-tools-extra llvm lldb lldb-devel cmake rust rust-gdb rust-lldb golang valgrind
 
     # Distribution-specific installations
     case "$distro" in
@@ -38,7 +37,8 @@ install_redhat_fedora() {
         fedora)
             # PostgreSQL installation for Fedora
             sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/F-40-x86_64/pgdg-fedora-repo-latest.noarch.rpm
-            sudo dnf install -y postgresql16-server
+            sudo dnf upgrade
+            sudo dnf install -y java-17-openjdk postgresql16-server cppcheck flawfinder
             sudo /usr/pgsql-16/bin/postgresql-16-setup initdb
             sudo systemctl enable postgresql-16
             sudo systemctl start postgresql-16
@@ -49,10 +49,14 @@ install_redhat_fedora() {
             ;;
     esac
 
-    # Installing sonar-scanner for Fedora has to be done manually.
-    # Install sonar-scanner for Red Hat-based distributions (excluding Fedora)
+    # Install the remaining static analysis tools except sonar-scanner
+    # sonar-scanner requires manual installation.
     if [[ "$distro" != "fedora" ]]; then
-        sudo dnf install -y sonar-scanner
+        sudo dnf install -y cppcheck snapd java-17-openjdk
+        sudo systemctl enable --now snapd.socket
+        sudo ln -s /var/lib/snapd/snap /snap
+        echo 'export PATH=$PATH:/var/lib/snapd/snap/bin' >> $HOME/.bashrc
+        sudo snap install flawfinder
     fi
 }
 
