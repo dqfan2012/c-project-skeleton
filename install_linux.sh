@@ -60,9 +60,6 @@ if [ -f /etc/os-release ]; then
         debian|ubuntu|linuxmint|pop|kali|mx|zorin)
             install_debian
             ;;
-        alpine)
-            install_alpine
-            ;;
         arch|manjaro|garuda|arcolinux|endeavouros)
             install_arch
             ;;
