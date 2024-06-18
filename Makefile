@@ -28,8 +28,8 @@ LDFLAGS =
 PROD_CFLAGS = -O2
 
 DEBUG_CFLAGS = -Wno-error=unused-result -fno-strict-aliasing -gdwarf-4 -g3 -O0 \
-               -Wstack-protector -fstack-protector-all -fsanitize=address -fsanitize=undefined \
-               -Wformat -Wformat-security -Wswitch-default -Wswitch-enum
+               -Wstack-protector -fstack-protector-all -Wformat -Wformat-security \
+	       -Wswitch-default -Wswitch-enum
 
 COMMON_GCC_CFLAGS = -Wlogical-op  -Wstrict-overflow=5
 COMMON_CLANG_CFLAGS = -Wlogical-not-parentheses -Wlogical-op-parentheses
