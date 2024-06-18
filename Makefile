@@ -22,18 +22,19 @@ ifeq ($(STRICT),true)
                      -Wstack-usage=1024 -Wstrict-aliasing=2
 endif
 
-COMMON_GCC_CFLAGS = -Wlogical-op  -Wstrict-overflow=5
-COMMON_CLANG_CFLAGS = -Wlogical-not-parentheses -Wlogical-op-parentheses
-DEBUG_CFLAGS_GCC = -fmax-errors=1
-DEBUG_CFLAGS_CLANG = -ferror-limit=1 -Wno-gnu-folding-constant
+# Example: LDLIBS += -lsomeMacSpecificLib
+LDLIBS =
+LDFLAGS =
+PROD_CFLAGS = -O2
 
 DEBUG_CFLAGS = -Wno-error=unused-result -fno-strict-aliasing -gdwarf-4 -g3 -O0 \
                -Wstack-protector -fstack-protector-all -fsanitize=address -fsanitize=undefined \
                -Wformat -Wformat-security -Wswitch-default -Wswitch-enum
-PROD_CFLAGS = -O2
-# Example: LDLIBS += -lsomeMacSpecificLib
-LDLIBS =
-LDFLAGS =
+
+COMMON_GCC_CFLAGS = -Wlogical-op  -Wstrict-overflow=5
+COMMON_CLANG_CFLAGS = -Wlogical-not-parentheses -Wlogical-op-parentheses
+DEBUG_CFLAGS_GCC = -fmax-errors=1
+DEBUG_CFLAGS_CLANG = -ferror-limit=1 -Wno-gnu-folding-constant
 
 # For Windows use MSYS2, cygwin, or WSL 2
 ifeq ($(OS), Windows_NT)
