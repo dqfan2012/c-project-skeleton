@@ -98,6 +98,8 @@ FLAWFINDER = flawfinder
 SONARQUBE_SCANNER = sonar-scanner
 INFER = infer
 ASAN_FLAGS = -fsanitize=address -fno-omit-frame-pointer
+LSAN_FLAGS = -fsanitize=leak
+TSAN_FLAGS = -fsanitize=thread
 
 # Source files
 SRCS = file1.c file2.c # List C files here.
@@ -202,6 +204,16 @@ infer:
 # Run AddressSanitizer
 asan: CFLAGS += $(ASAN_FLAGS)
 asan: clean $(EXEC)
+    ./$(EXEC)
+
+# Compile target with LeakSanitizer
+lsan: CFLAGS += $(LSAN_FLAGS)
+lsan: clean debug
+    ./$(EXEC)
+
+# Compile target with ThreadSanitizer
+tsan: CFLAGS += $(TSAN_FLAGS)
+tsan: clean debug
     ./$(EXEC)
 
 # Clean up
