@@ -22,13 +22,15 @@ ifeq ($(STRICT),true)
                      -Wstack-usage=1024 -Wstrict-aliasing=2
 endif
 
-COMMON_GCC_CFLAGS = -Wlogical-op -Wstack-protector -Wstrict-overflow=5
+COMMON_GCC_CFLAGS = -Wlogical-op  -Wstrict-overflow=5
 COMMON_CLANG_CFLAGS = -Wlogical-not-parentheses -Wlogical-op-parentheses
 DEBUG_CFLAGS_GCC = -fmax-errors=1
-DEBUG_CFLAGS_CLANG = -ferror-limit=1
+DEBUG_CFLAGS_CLANG = -ferror-limit=1 -Wno-gnu-folding-constant
 
-DEBUG_CFLAGS =
-PROD_CFLAGS =
+DEBUG_CFLAGS = -Wno-error=unused-result -fno-strict-aliasing -gdwarf-4 -g3 -O0 \
+               -Wstack-protector -fstack-protector-all -fsanitize=address -fsanitize=undefined \
+               -Wformat -Wformat-security -Wswitch-default -Wswitch-enum
+PROD_CFLAGS = -O2
 # Example: LDLIBS += -lsomeMacSpecificLib
 LDLIBS =
 LDFLAGS =
@@ -60,7 +62,7 @@ else ifeq ($(OS), Darwin)
     IS_MACOS = 1
     CC = clang
     COMMON_CFLAGS += 
-    DEBUG_CFLAGS += -Wno-gnu-folding-constant
+    DEBUG_CFLAGS += 
     PROD_CFLAGS +=
     LDFLAGS +=
     LDLIBS +=
@@ -74,8 +76,8 @@ else ifeq ($(CC),clang)
     DEBUG_CFLAGS += $(DEBUG_CFLAGS_CLANG)
 endif
 
-DEBUG_CFLAGS += -gdwarf-4 -g3 -O0 -Wno-gnu-folding-constant $(COMMON_CFLAGS)
-PROD_CFLAGS += -O2 $(COMMON_CFLAGS)
+DEBUG_CFLAGS += $(COMMON_CFLAGS) 
+PROD_CFLAGS += $(COMMON_CFLAGS)
 
 # Static analysis tools
 CPPCHECK = cppcheck
