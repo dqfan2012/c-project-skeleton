@@ -1,5 +1,5 @@
 # Phony targets
-.PHONY: all cppcheck valgrind leaks clang-analyze clang-tidy flawfinder pvs-studio coverity sonar-scanner infer asan clean
+.PHONY: all cppcheck valgrind leaks clang-analyze clang-tidy flawfinder sonar-scanner infer asan clean
 
 # Set STRICT variable if you want to use stricter CFLAGS for compiling.
 STRICT := false
@@ -7,19 +7,19 @@ STRICT := false
 # Windows has $OS env var set by default
 OS := $(OS)
 ifeq ($(OS),)
-	OS := $(shell uname)
+    OS := $(shell uname)
 endif
 
 CC = gcc
 COMMON_CFLAGS = -std=c17 -Wall -Werror -Wextra -Wno-sign-compare \
-				-Wno-unused-parameter -Wno-unused-variable -Wshadow 
+                -Wno-unused-parameter -Wno-unused-variable -Wshadow 
 
 # Set the stricter CFLAGS if the strict var has been set to true
 ifeq ($(STRICT),true)
-	COMMON_CFLAGS += -pedantic -Wconversion -Wformat=2 -Wmissing-include-dirs -Wswitch-enum \
-					-Wfloat-equal -Wredundant-decls -Wnull-dereference -Wold-style-definition \
-					-Wdouble-promotion -Wshadow=local -Wformat-overflow=2 -Wformat-truncation=2 \
-					-Wstack-usage=1024 -Wstrict-aliasing=2
+    COMMON_CFLAGS += -pedantic -Wconversion -Wformat=2 -Wmissing-include-dirs -Wswitch-enum \
+                    -Wfloat-equal -Wredundant-decls -Wnull-dereference -Wold-style-definition \
+                    -Wdouble-promotion -Wshadow=local -Wformat-overflow=2 -Wformat-truncation=2 \
+                    -Wstack-usage=1024 -Wstrict-aliasing=2
 endif
 
 # Example: LDLIBS += -lsomeMacSpecificLib
@@ -28,8 +28,8 @@ LDFLAGS =
 PROD_CFLAGS = -O2
 
 DEBUG_CFLAGS = -Wno-error=unused-result -fno-strict-aliasing -gdwarf-4 -g3 -O0 \
-			-Wstack-protector -fstack-protector-all -Wformat -Wformat-security \
-			-Wswitch-default -Wswitch-enum -fsanitize=undefined
+                -Wstack-protector -fstack-protector-all -Wformat -Wformat-security \
+                -Wswitch-default -Wswitch-enum -fsanitize=undefined
 
 COMMON_GCC_CFLAGS = -Wlogical-op  -Wstrict-overflow=5
 COMMON_CLANG_CFLAGS = -Wlogical-not-parentheses -Wlogical-op-parentheses
@@ -175,9 +175,9 @@ flawfinder:
 # Be sure sonarqube is running before running the scanner.
 sonar-scanner:
 	$(SONARQUBE_SCANNER) \
-        -Dsonar.projectKey=$(SONARQUBE_PROJECT_KEY) \
-        -Dsonar.host.url=$(SONARQUBE_HOST_URL) \
-        -Dsonar.login=$(SONARQUBE_TOKEN)
+		-Dsonar.projectKey=$(SONARQUBE_PROJECT_KEY) \
+		-Dsonar.host.url=$(SONARQUBE_HOST_URL) \
+		-Dsonar.login=$(SONARQUBE_TOKEN)
 
 # Run Infer
 infer:
@@ -201,4 +201,5 @@ tsan: clean debug
 # Clean up
 clean:
 	@[ -d "infer-out" ] && rm -rf infer-out || true
+	@[ -d ".scannerwork" ] && rm -rf .scannerwork || true
 	rm -f $(OBJS) $(EXEC) $(EXEC).plist
