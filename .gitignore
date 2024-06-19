@@ -78,3 +78,18 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Code editor files
+.vscode/
+.idea/
+*.atom/
+.atom/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*~
+.vim/
+.vimrc
+.tmp
+*.kate-swp
+*.komodoproject
