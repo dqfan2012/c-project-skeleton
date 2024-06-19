@@ -97,14 +97,13 @@ LEAKS = leaks
 CLANG_ANALYZER = clang --analyze
 CLANG_TIDY = clang-tidy
 FLAWFINDER = flawfinder
-# PVS_STUDIO = pvs-studio-analyzer
-# COVERITY = cov-build --dir cov-int
 SONARQUBE_SCANNER = sonar-scanner
 INFER = infer
 PVS_STUDIO_ANALYZE = pvs-studio-analyzer
 PVS_STUDIO_CONVERT = plog-converter
 PVS_LOG = $(SRC_DIR)/$(EXEC_NAME).log
 PVS_ERR = $(SRC_DIR)/$(EXEC_NAME).err
+# COVERITY = cov-build --dir cov-int
 ASAN_FLAGS = -fsanitize=address -fno-omit-frame-pointer
 LSAN_FLAGS = -fsanitize=leak
 TSAN_FLAGS = -fsanitize=thread
