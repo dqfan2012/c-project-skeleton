@@ -4,7 +4,7 @@
 # Set STRICT variable if you want to use stricter CFLAGS for compiling.
 STRICT := false
 
-# 
+# Define variables for the source directory and executable name
 SRC_DIR ?= .
 EXEC_NAME ?= main
 
@@ -114,7 +114,6 @@ OBJS = $(SRCS:.c=.o)
 # Executable: Based on exercise name
 EXEC = $(SRC_DIR)/$(EXEC_NAME)
 
-
 # Default target
 all: debug
 
@@ -140,29 +139,29 @@ cppcheck:
 
 # Run valgrind
 valgrind-memcheck: $(EXEC)
-	$(VALGRIND_MEMCHECK) ./$(EXEC)
+	$(VALGRIND_MEMCHECK) $(EXEC)
 
 valgrind-helgrind: $(EXEC)
-	$(VALGRIND_HELGRIND) ./$(EXEC)
+	$(VALGRIND_HELGRIND) $(EXEC)
 
 valgrind-drd: $(EXEC)
-	$(VALGRIND_DRD) ./$(EXEC)
+	$(VALGRIND_DRD) $(EXEC)
 
 valgrind-callgrind: $(EXEC)
-	$(VALGRIND_CALLGRIND) ./$(EXEC)
+	$(VALGRIND_CALLGRIND) $(EXEC)
 
 valgrind-massif: $(EXEC)
-	$(VALGRIND_MASSIF) ./$(EXEC)
+	$(VALGRIND_MASSIF) $(EXEC)
 
 valgrind-cachegrind: $(EXEC)
-	$(VALGRIND_CACHEGRIND) ./$(EXEC)
+	$(VALGRIND_CACHEGRIND) $(EXEC)
 
 valgrind-sgcheck: $(EXEC)
-	$(VALGRIND_SGCHECK) ./$(EXEC)
+	$(VALGRIND_SGCHECK) $(EXEC)
 
 # Run leaks on macOS
 leaks: $(EXEC)
-	$(LEAKS) --atExit -- ./$(EXEC)
+	$(LEAKS) --atExit -- $(EXEC)
 
 # Run Clang Static Analyzer
 clang-analyze:
@@ -191,20 +190,20 @@ infer:
 # Run AddressSanitizer
 asan: CFLAGS += $(ASAN_FLAGS)
 asan: clean $(EXEC)
-	./$(EXEC)
+	$(EXEC)
 
 # Compile target with LeakSanitizer
 lsan: CFLAGS += $(LSAN_FLAGS)
 lsan: clean debug
-	./$(EXEC)
+	$(EXEC)
 
 # Compile target with ThreadSanitizer
 tsan: CFLAGS += $(TSAN_FLAGS)
 tsan: clean debug
-	./$(EXEC)
+	$(EXEC)
 
 # Clean up
 clean:
-	@[ -d "infer-out" ] && rm -rf infer-out || true
-	@[ -d ".scannerwork" ] && rm -rf .scannerwork || true
-	rm -f $(OBJS) $(EXEC) $(EXEC).plist
+	@[ -d "$(SRC_DIR)/infer-out" ] && rm -rf "$(SRC_DIR)/infer-out" || true
+	@[ -d "$(SRC_DIR)/.scannerwork" ] && rm -rf "$(SRC_DIR)/.scannerwork" || true
+	rm -f $(OBJS) $(EXEC) $(SRC_DIR)/*.plist
