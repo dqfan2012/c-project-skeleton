@@ -4,6 +4,10 @@
 # Set STRICT variable if you want to use stricter CFLAGS for compiling.
 STRICT := false
 
+# 
+SRC_DIR ?= .
+EXEC_NAME ?= main
+
 # Windows has $OS env var set by default
 OS := $(OS)
 ifeq ($(OS),)
@@ -101,14 +105,15 @@ ASAN_FLAGS = -fsanitize=address -fno-omit-frame-pointer
 LSAN_FLAGS = -fsanitize=leak
 TSAN_FLAGS = -fsanitize=thread
 
-# Source files
-SRCS = file1.c file2.c # List C files here.
+# Source files: All .c files in the exercise directory
+SRCS = $(wildcard $(SRC_DIR)/*.c)
 
-# Object files
+# Object files: Corresponding .o files in the exercise directory
 OBJS = $(SRCS:.c=.o)
 
-# Executable
-EXEC = file1
+# Executable: Based on exercise name
+EXEC = $(SRC_DIR)/$(EXEC_NAME)
+
 
 # Default target
 all: debug
