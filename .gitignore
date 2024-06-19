@@ -59,6 +59,17 @@
 *.pdb
 *.plist
 
+# Analysis Directories
+infer-out/
+.scannerwork
+.PVS-Studio/
+**/Logs/
+
+# Analysis files
+**/compile_commands.json
+**/*.err
+**/*.log
+
 # Kernel Module Compile Results
 *.mod*
 *.cmd
