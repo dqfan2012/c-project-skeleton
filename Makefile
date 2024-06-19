@@ -18,8 +18,7 @@ COMMON_CFLAGS = -std=c17 -Wall -Werror -Wextra -Wno-sign-compare \
 ifeq ($(STRICT),true)
     COMMON_CFLAGS += -pedantic -Wconversion -Wformat=2 -Wmissing-include-dirs -Wswitch-enum \
                     -Wfloat-equal -Wredundant-decls -Wnull-dereference -Wold-style-definition \
-                    -Wdouble-promotion -Wshadow=local -Wformat-overflow=2 -Wformat-truncation=2 \
-                    -Wstack-usage=1024 -Wstrict-aliasing=2
+                    -Wdouble-promotion -Wshadow -Wshift-overflow -Wstrict-aliasing=2
 endif
 
 # Example: LDLIBS += -lsomeMacSpecificLib
@@ -31,7 +30,8 @@ DEBUG_CFLAGS = -Wno-error=unused-result -fno-strict-aliasing -gdwarf-4 -g3 -O0 \
                 -Wstack-protector -fstack-protector-all -Wformat -Wformat-security \
                 -Wswitch-default -Wswitch-enum -fsanitize=undefined
 
-COMMON_GCC_CFLAGS = -Wlogical-op  -Wstrict-overflow=5
+COMMON_GCC_CFLAGS = -Wlogical-op  -Wstrict-overflow=5 -Wformat-overflow=2 \
+					-Wformat-truncation=2 -Wstack-usage=1024
 COMMON_CLANG_CFLAGS = -Wlogical-not-parentheses -Wlogical-op-parentheses
 DEBUG_CFLAGS_GCC = -fmax-errors=1
 DEBUG_CFLAGS_CLANG = -ferror-limit=1 -Wno-gnu-folding-constant
