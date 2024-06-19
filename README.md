@@ -20,6 +20,7 @@
     - [If you want to use Sonarqube locally with Sonar Scanner](#if-you-want-to-use-sonarqube-locally-with-sonar-scanner)
       - [Linux Setup Instructions](#linux-setup-instructions)
       - [MacOS Setup Instructions](#macos-setup-instructions)
+    - [Important SonarQube Note](#important-sonarqube-note)
 
 ## C Project Skeleton
 
@@ -212,3 +213,25 @@ Note: A simple Google search will show you how to setup and configure these tool
 [PostgreSQL 16 Setup Instructions](https://medium.com/@abhinavsinha_/download-and-configure-postgresql16-on-macos-d41dc49217b6)
 
 [Setup Sonarqube](https://techblost.com/how-to-setup-sonarqube-locally-on-mac/)
+
+### Important SonarQube Note
+
+When you update the .envrc file with your SonarQube information, make sure to exclude it from GitHub.
+
+Add `.envrc` to `.gitignore`.
+
+```bash
+echo ".envrc" >> .gitignore
+```
+
+Removed `.envrc` file from the Git repository:
+
+```bash
+git rm --cached .envrc
+```
+
+Be sure to commit your changes.
+
+```bash
+git commit -am "Remove .envrc from the repository"
+```

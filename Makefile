@@ -1,5 +1,5 @@
 # Phony targets
-.PHONY: all cppcheck valgrind leaks clang-analyze clang-tidy flawfinder pvs-studio coverity sonarqube infer asan clean
+.PHONY: all cppcheck valgrind leaks clang-analyze clang-tidy flawfinder pvs-studio coverity sonar-scanner infer asan clean
 
 # Set STRICT variable if you want to use stricter CFLAGS for compiling.
 STRICT := false
@@ -183,19 +183,12 @@ flawfinder:
 #     cov-format-errors --dir cov-int --emacs-style
 
 # Run SonarQube Scanner
-sonarqube-scanner:
-    $(SONARQUBE_SCANNER)
-
-# Run SonarQube
-# sonarqube:
-#     ifeq ($(IS_MACOS), 1)
-#         brew services start sonarqube
-#     else ifeq ($(IS_LINUX), 1)
-#         sudo systemctl start sonarqube
-#     endif
-#     # Ensure that SonarQube has time to start up
-#     sleep 30
-#     $(SONARQUBE_SCANNER)
+# Be sure sonarqube is running before running the scanner.
+sonar-scanner:
+	$(SONARQUBE_SCANNER) \
+        -Dsonar.projectKey=$(SONARQUBE_PROJECT_KEY) \
+        -Dsonar.host.url=$(SONARQUBE_HOST_URL) \
+        -Dsonar.login=$(SONARQUBE_TOKEN)
 
 # Run Infer
 infer:
