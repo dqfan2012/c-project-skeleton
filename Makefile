@@ -7,19 +7,19 @@ STRICT := false
 # Windows has $OS env var set by default
 OS := $(OS)
 ifeq ($(OS),)
-    OS := $(shell uname)
+	OS := $(shell uname)
 endif
 
 CC = gcc
 COMMON_CFLAGS = -std=c17 -Wall -Werror -Wextra -Wno-sign-compare \
-                -Wno-unused-parameter -Wno-unused-variable -Wshadow 
+				-Wno-unused-parameter -Wno-unused-variable -Wshadow 
 
 # Set the stricter CFLAGS if the strict var has been set to true
 ifeq ($(STRICT),true)
-    COMMON_CFLAGS += -pedantic -Wconversion -Wformat=2 -Wmissing-include-dirs -Wswitch-enum \
-                     -Wfloat-equal -Wredundant-decls -Wnull-dereference -Wold-style-definition \
-                     -Wdouble-promotion -Wshadow=local -Wformat-overflow=2 -Wformat-truncation=2 \
-                     -Wstack-usage=1024 -Wstrict-aliasing=2
+	COMMON_CFLAGS += -pedantic -Wconversion -Wformat=2 -Wmissing-include-dirs -Wswitch-enum \
+					-Wfloat-equal -Wredundant-decls -Wnull-dereference -Wold-style-definition \
+					-Wdouble-promotion -Wshadow=local -Wformat-overflow=2 -Wformat-truncation=2 \
+					-Wstack-usage=1024 -Wstrict-aliasing=2
 endif
 
 # Example: LDLIBS += -lsomeMacSpecificLib
@@ -28,8 +28,8 @@ LDFLAGS =
 PROD_CFLAGS = -O2
 
 DEBUG_CFLAGS = -Wno-error=unused-result -fno-strict-aliasing -gdwarf-4 -g3 -O0 \
-               -Wstack-protector -fstack-protector-all -Wformat -Wformat-security \
-	       -Wswitch-default -Wswitch-enum -fsanitize=undefined
+			-Wstack-protector -fstack-protector-all -Wformat -Wformat-security \
+			-Wswitch-default -Wswitch-enum -fsanitize=undefined
 
 COMMON_GCC_CFLAGS = -Wlogical-op  -Wstrict-overflow=5
 COMMON_CLANG_CFLAGS = -Wlogical-not-parentheses -Wlogical-op-parentheses
@@ -123,11 +123,11 @@ release: $(EXEC)
 
 # Compile target
 $(EXEC): $(OBJS)
-    $(CC) $(CFLAGS) $(OBJS) -o $(EXEC) $(LDFLAGS) $(LDLIBS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(EXEC) $(LDFLAGS) $(LDLIBS)
 
 # Object file compilation
 %.o: %.c
-    $(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Run cppcheck
 cppcheck:
@@ -157,30 +157,19 @@ valgrind-sgcheck: $(EXEC)
 
 # Run leaks on macOS
 leaks: $(EXEC)
-    $(LEAKS) --atExit -- ./$(EXEC)
+	$(LEAKS) --atExit -- ./$(EXEC)
 
 # Run Clang Static Analyzer
 clang-analyze:
-    $(CLANG_ANALYZER) $(SRCS)
+	$(CLANG_ANALYZER) $(SRCS)
 
 # Run Clang-Tidy
 clang-tidy:
-    $(CLANG_TIDY) $(SRCS) -- -std=c17
+	$(CLANG_TIDY) $(SRCS) -- -std=c17
 
 # Run Flawfinder
 flawfinder:
-    $(FLAWFINDER) $(SRCS)
-
-# Run PVS-Studio
-# pvs-studio:
-#     $(PVS_STUDIO) analyze -o $(EXEC).log -e $(SRCS)
-#     plog-converter -a GA:1,2 -t errorfile -o $(EXEC).err $(EXEC).log
-
-# Run Coverity
-# coverity:
-#     $(COVERITY) make
-#     cov-analyze --dir cov-int
-#     cov-format-errors --dir cov-int --emacs-style
+	$(FLAWFINDER) $(SRCS)
 
 # Run SonarQube Scanner
 # Be sure sonarqube is running before running the scanner.
@@ -192,23 +181,24 @@ sonar-scanner:
 
 # Run Infer
 infer:
-    $(INFER) run -- make
+	$(INFER) run -- make
 
 # Run AddressSanitizer
 asan: CFLAGS += $(ASAN_FLAGS)
 asan: clean $(EXEC)
-    ./$(EXEC)
+	./$(EXEC)
 
 # Compile target with LeakSanitizer
 lsan: CFLAGS += $(LSAN_FLAGS)
 lsan: clean debug
-    ./$(EXEC)
+	./$(EXEC)
 
 # Compile target with ThreadSanitizer
 tsan: CFLAGS += $(TSAN_FLAGS)
 tsan: clean debug
-    ./$(EXEC)
+	./$(EXEC)
 
 # Clean up
 clean:
+	@[ -d "infer-out" ] && rm -rf infer-out || true
 	rm -f $(OBJS) $(EXEC) $(EXEC).plist
