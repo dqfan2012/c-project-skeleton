@@ -9,7 +9,7 @@
     - [Windows Installation](#windows-installation)
     - [Linux Installation](#linux-installation)
       - [Linux Testing Information](#linux-testing-information)
-      - [Red Hat-based](#red-hat-based)
+      - [Red Hat-based - SonarQube Scanner will have to be downloaded and installed manually for all redhat-based distros](#red-hat-based---sonarqube-scanner-will-have-to-be-downloaded-and-installed-manually-for-all-redhat-based-distros)
       - [Debian-based](#debian-based)
       - [Arch-based](#arch-based)
       - [NixOS-based](#nixos-based)
@@ -17,7 +17,7 @@
       - [Running the Linux script](#running-the-linux-script)
     - [MacOS Installation](#macos-installation)
       - [Running the MacOS install script](#running-the-macos-install-script)
-    - [If you want to use Sonarqube with Sonar Scanner](#if-you-want-to-use-sonarqube-with-sonar-scanner)
+    - [If you want to use Sonarqube locally with Sonar Scanner](#if-you-want-to-use-sonarqube-locally-with-sonar-scanner)
       - [Linux Setup Instructions](#linux-setup-instructions)
       - [MacOS Setup Instructions](#macos-setup-instructions)
 
@@ -96,16 +96,16 @@ I used the following specifications for **all** VMs:
 - 2 vCPUs
 - 128MB Video Memory with 3D Acceleration enabled
 
-#### Red Hat-based - SonarQube Scanner will have to be downloaded and installed manually for all redhat-based distros.
+#### Red Hat-based - SonarQube Scanner will have to be downloaded and installed manually for all redhat-based distros
 
 - [ ] RHEL
-  - RHEL 9.4 64-bit amd64 :white_check_mark: 
+  - RHEL 9.4 64-bit amd64 :white_check_mark:
   - RHEL 9.4 64-bit aarch64
 - [ ] CentOS
   - CentOS 9 64-bit amd64
   - CentOS 9 64-bit aarch64
 - [ ] Fedora
-  - Fedora Workstation 40 64-bit amd64 :white_check_mark: 
+  - Fedora Workstation 40 64-bit amd64 :white_check_mark:
   - Fedora Workstation 40 64-bit aarch64
 - [ ] Rocky Linux
   - Rocky Linux v9.4 64-bit amd64
