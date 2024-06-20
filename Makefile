@@ -1,5 +1,5 @@
 # Phony targets
-.PHONY: all asan clang-analyze clang-tidy clean complexity cppcheck coverage dependency-check format flawfinder frama-c fuzz infer leaks lsan llvm-coverage sonar-scanner splint tsan ubsan valgrind check
+.PHONY: all check asan clang-analyze clang-tidy clean complexity cppcheck coverage dependency-check format flawfinder frama-c fuzz infer leaks lsan llvm-coverage sonar-scanner splint tsan ubsan valgrind check
 
 # Set STRICT variable if you want to use stricter CFLAGS for compiling.
 STRICT := false
