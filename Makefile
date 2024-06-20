@@ -254,23 +254,23 @@ ubsan: clean debug
 	$(EXEC)
 
 # Run valgrind
-valgrind-memcheck: $(EXEC)
-	$(VALGRIND_MEMCHECK) $(EXEC)
-
-valgrind-helgrind: $(EXEC)
-	$(VALGRIND_HELGRIND) $(EXEC)
-
-valgrind-drd: $(EXEC)
-	$(VALGRIND_DRD) $(EXEC)
+valgrind-cachegrind: $(EXEC)
+	$(VALGRIND_CACHEGRIND) $(EXEC)
 
 valgrind-callgrind: $(EXEC)
 	$(VALGRIND_CALLGRIND) $(EXEC)
 
+valgrind-drd: $(EXEC)
+	$(VALGRIND_DRD) $(EXEC)
+
+valgrind-helgrind: $(EXEC)
+	$(VALGRIND_HELGRIND) $(EXEC)
+
 valgrind-massif: $(EXEC)
 	$(VALGRIND_MASSIF) $(EXEC)
 
-valgrind-cachegrind: $(EXEC)
-	$(VALGRIND_CACHEGRIND) $(EXEC)
+valgrind-memcheck: $(EXEC)
+	$(VALGRIND_MEMCHECK) $(EXEC)
 
 valgrind-sgcheck: $(EXEC)
 	$(VALGRIND_SGCHECK) $(EXEC)
