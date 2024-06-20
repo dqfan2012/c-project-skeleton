@@ -309,4 +309,4 @@ clean:
 	rm -f $(OBJS) $(EXEC) $(SRC_DIR)/*.plist $(SRC_DIR)/compile_commands.json $(SRC_DIR)/*.log
 
 clean-test:
-	rm -f $(TEST_OBJS) $(TEST_EXEC)
+	rm -f $(TEST_OBJS) $(TEST_EXEC) $(OBJS)
