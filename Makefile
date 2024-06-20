@@ -18,6 +18,9 @@ CC = gcc
 COMMON_CFLAGS = -std=c17 -Wall -Werror -Wextra -Wno-sign-compare \
                 -Wno-unused-parameter -Wno-unused-variable -Wshadow
 
+# Add C++14 standard to the compilation flags
+CXXFLAGS = -std=c++20
+
 # Set the stricter CFLAGS if the strict var has been set to true
 ifeq ($(STRICT),true)
     COMMON_CFLAGS += -pedantic -Wconversion -Wformat=2 -Wmissing-include-dirs -Wswitch-enum \
@@ -97,6 +100,9 @@ FLAWFINDER = flawfinder
 FRAMA_C = frama-c
 FUZZER_FLAGS = -fsanitize=fuzzer
 GCOV = gcov
+GTEST_DIR = /opt/homebrew/Cellar/googletest/1.14.0
+GTEST_INCLUDE = -I$(GTEST_DIR)/include
+GTEST_LIBS = -L$(GTEST_DIR)/lib -lgtest -lgtest_main -pthread
 INFER = infer
 LEAKS = leaks
 LIZARD = lizard
@@ -124,8 +130,8 @@ CHECK_LIBS = -lcheck
 TEST_DIR = tests
 EX_NAME = example-test
 TEST_EXEC = $(TEST_DIR)/$(EX_NAME)/test_$(EX_NAME)
-TEST_SRCS = $(wildcard $(TEST_DIR)/$(EX_NAME)/*.c)
-TEST_OBJS = $(TEST_SRCS:.c=.o)
+TEST_SRCS = $(wildcard $(TEST_DIR)/$(EX_NAME)/*.cpp)
+TEST_OBJS = $(TEST_SRCS:.cpp=.o)
 
 # Source files: All .c files in the exercise directory
 SRCS = $(wildcard $(SRC_DIR)/*.c)
@@ -151,13 +157,17 @@ release: $(EXEC)
 $(EXEC): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(EXEC) $(LDFLAGS) $(LDLIBS)
 
+# Compile target for unit tests with Google Test
+$(TEST_EXEC): $(TEST_OBJS) $(OBJS)
+	$(CXX) $(CXXFLAGS) $(GTEST_INCLUDE) -o $@ $(TEST_OBJS) $(OBJS) $(GTEST_LIBS) $(LDLIBS)
+
 # Object file compilation
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Compile target for unit tests with Check
-$(TEST_EXEC): $(TEST_OBJS) $(OBJS)
-	$(CC) $(CFLAGS) $(CHECK_INCLUDE) -o $@ $(TEST_OBJS) $(OBJS) $(LDFLAGS) $(LDLIBS) $(CHECK_LIBS)
+# Object file compilation for C++ test files
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) $(GTEST_INCLUDE) -c $< -o $@
 
 # Run unit tests
 run-tests: $(TEST_EXEC)
