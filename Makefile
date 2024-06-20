@@ -155,13 +155,13 @@ $(EXEC): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Compile target for unit tests
-$(TEST_EXEC): $(TEST_OBJS)
-	$(CC) $(CFLAGS) $(CHECK_INCLUDE) -o $(TEST_EXEC) $(TEST_OBJS) $(LDFLAGS) $(LDLIBS) $(CHECK_LIBS)
+# Compile target for unit tests with Check
+$(TEST_EXEC): $(TEST_OBJS) $(OBJS)
+	$(CC) $(CFLAGS) $(CHECK_INCLUDE) -o $@ $(TEST_OBJS) $(OBJS) $(LDFLAGS) $(LDLIBS) $(CHECK_LIBS)
 
 # Run unit tests
 run-tests: $(TEST_EXEC)
-	./$(TEST_EXEC)
+	$(TEST_EXEC)
 
 # Comprehensive analysis target
 check: cppcheck clang-analyze clang-tidy flawfinder splint frama-c infer pvs-studio
@@ -299,4 +299,4 @@ clean:
 	rm -f $(OBJS) $(EXEC) $(SRC_DIR)/*.plist $(SRC_DIR)/compile_commands.json $(SRC_DIR)/*.log
 
 clean-test:
-	rm -f $(TEST_OBJS)
+	rm -f $(TEST_OBJS) $(TEST_EXEC)
