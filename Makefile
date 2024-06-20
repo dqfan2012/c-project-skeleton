@@ -1,5 +1,5 @@
 # Phony targets
-.PHONY: all cppcheck valgrind leaks clang-analyze clang-tidy flawfinder sonar-scanner infer asan clean
+.PHONY: all cppcheck valgrind leaks clang-analyze clang-tidy flawfinder splint frama-c sonar-scanner infer asan lsan tsan clean
 
 # Set STRICT variable if you want to use stricter CFLAGS for compiling.
 STRICT := false
@@ -16,7 +16,7 @@ endif
 
 CC = gcc
 COMMON_CFLAGS = -std=c17 -Wall -Werror -Wextra -Wno-sign-compare \
-                -Wno-unused-parameter -Wno-unused-variable -Wshadow 
+                -Wno-unused-parameter -Wno-unused-variable -Wshadow
 
 # Set the stricter CFLAGS if the strict var has been set to true
 ifeq ($(STRICT),true)
@@ -66,8 +66,8 @@ else ifeq ($(OS), Linux)
 else ifeq ($(OS), Darwin)
     IS_MACOS = 1
     CC = clang
-    COMMON_CFLAGS += 
-    DEBUG_CFLAGS += 
+    COMMON_CFLAGS +=
+    DEBUG_CFLAGS +=
     PROD_CFLAGS +=
     LDFLAGS +=
     LDLIBS +=
@@ -81,7 +81,7 @@ else ifeq ($(CC),clang)
     DEBUG_CFLAGS += $(DEBUG_CFLAGS_CLANG)
 endif
 
-DEBUG_CFLAGS += $(COMMON_CFLAGS) 
+DEBUG_CFLAGS += $(COMMON_CFLAGS)
 PROD_CFLAGS += $(COMMON_CFLAGS)
 
 # Static analysis tools
@@ -97,6 +97,8 @@ LEAKS = leaks
 CLANG_ANALYZER = clang --analyze
 CLANG_TIDY = clang-tidy
 FLAWFINDER = flawfinder
+SPLINT = splint
+FRAMA_C = frama-c
 SONARQUBE_SCANNER = sonar-scanner
 INFER = infer
 PVS_STUDIO_ANALYZE = pvs-studio-analyzer
@@ -177,6 +179,14 @@ clang-tidy:
 # Run Flawfinder
 flawfinder:
 	$(FLAWFINDER) $(SRCS)
+
+# Run splint
+splint:
+	$(SPLINT) $(SRCS)
+
+# Run frama-c
+frama-c:
+	$(FRAMA_C) -wp -wp-rte $(SRCS)
 
 # Run SonarQube Scanner
 # Be sure sonarqube is running before running the scanner.
