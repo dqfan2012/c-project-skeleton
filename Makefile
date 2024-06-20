@@ -231,9 +231,22 @@ fuzz: clean $(EXEC)
 infer:
 	$(INFER) run -- make
 
-# Run leaks on macOS
 leaks: $(EXEC)
+ifeq ($(IS_MACOS), 1)
 	$(LEAKS) --atExit -- $(EXEC)
+else
+	@echo "Memory check tool not available for this OS."
+endif
+
+
+memcheck: $(EXEC)
+ifeq ($(IS_MACOS), 1)
+	$(LEAKS) --atExit -- $(EXEC)
+else ifeq ($(IS_LINUX), 1)
+	$(VALGRIND_MEMCHECK) $(EXEC)
+else
+	@echo "Memory check tool not available for this OS."
+endif
 
 # Code coverage with llvm-cov
 llvm-coverage: CFLAGS += $(COVERAGE_FLAGS)
@@ -281,25 +294,53 @@ ubsan: clean debug
 
 # Run valgrind
 valgrind-cachegrind: $(EXEC)
+ifeq ($(IS_LINUX), 1)
 	$(VALGRIND_CACHEGRIND) $(EXEC)
+else
+	@echo "Valgrind is not available on Apple Silicon"
+endif
 
 valgrind-callgrind: $(EXEC)
+ifeq ($(IS_LINUX), 1)
 	$(VALGRIND_CALLGRIND) $(EXEC)
+else
+	@echo "Valgrind is not available on Apple Silicon"
+endif
 
 valgrind-drd: $(EXEC)
+ifeq ($(IS_LINUX), 1)
 	$(VALGRIND_DRD) $(EXEC)
+else
+	@echo "Valgrind is not available on Apple Silicon"
+endif
 
 valgrind-helgrind: $(EXEC)
+ifeq ($(IS_LINUX), 1)
 	$(VALGRIND_HELGRIND) $(EXEC)
+else
+	@echo "Valgrind is not available on Apple Silicon"
+endif
 
 valgrind-massif: $(EXEC)
+ifeq ($(IS_LINUX), 1)
 	$(VALGRIND_MASSIF) $(EXEC)
+else
+	@echo "Valgrind is not available on Apple Silicon"
+endif
 
 valgrind-memcheck: $(EXEC)
+ifeq ($(IS_LINUX), 1)
 	$(VALGRIND_MEMCHECK) $(EXEC)
+else
+	@echo "Valgrind is not available on Apple Silicon"
+endif
 
 valgrind-sgcheck: $(EXEC)
+ifeq ($(IS_LINUX), 1)
 	$(VALGRIND_SGCHECK) $(EXEC)
+else
+	@echo "Valgrind is not available on Apple Silicon"
+endif
 
 # Clean up
 clean:
