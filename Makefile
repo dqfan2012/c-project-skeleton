@@ -147,6 +147,9 @@ $(EXEC): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# Comprehensive analysis target
+check: cppcheck clang-analyze clang-tidy flawfinder splint frama-c infer pvs-studio
+
 # Run AddressSanitizer
 asan: CFLAGS += $(ASAN_FLAGS)
 asan: clean $(EXEC)
