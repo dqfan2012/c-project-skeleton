@@ -1,5 +1,5 @@
 # Phony targets
-.PHONY: all check asan clang-analyze clang-tidy clean complexity cppcheck coverage dependency-check format flawfinder frama-c fuzz infer leaks lsan llvm-coverage sonar-scanner splint tsan ubsan valgrind check
+.PHONY: all check asan clang-analyze clang-tidy complexity cppcheck coverage dependency-check format flawfinder frama-c fuzz infer leaks lsan llvm-coverage sonar-scanner splint tsan ubsan valgrind clean clean-test
 
 # Set STRICT variable if you want to use stricter CFLAGS for compiling.
 STRICT := false
@@ -119,6 +119,14 @@ VALGRIND_MASSIF = valgrind --tool=massif
 VALGRIND_MEMCHECK = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
 VALGRIND_SGCHECK = valgrind --tool=exp-sgcheck
 
+# Code Tests
+CHECK_LIBS = -lcheck
+TEST_DIR = tests
+EX_NAME = example-test
+TEST_EXEC = $(TEST_DIR)/$(EX_NAME)/test_$(EX_NAME)
+TEST_SRCS = $(wildcard $(TEST_DIR)/$(EX_NAME)/*.c)
+TEST_OBJS = $(TEST_SRCS:.c=.o)
+
 # Source files: All .c files in the exercise directory
 SRCS = $(wildcard $(SRC_DIR)/*.c)
 
@@ -139,13 +147,21 @@ debug: $(EXEC)
 release: CFLAGS = $(PROD_CFLAGS)
 release: $(EXEC)
 
-# Compile target
+# Main executable target
 $(EXEC): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(EXEC) $(LDFLAGS) $(LDLIBS)
 
 # Object file compilation
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
+# Compile target for unit tests
+$(TEST_EXEC): $(TEST_OBJS)
+	$(CC) $(CFLAGS) $(CHECK_INCLUDE) -o $(TEST_EXEC) $(TEST_OBJS) $(LDFLAGS) $(LDLIBS) $(CHECK_LIBS)
+
+# Run unit tests
+run-tests: $(TEST_EXEC)
+	./$(TEST_EXEC)
 
 # Comprehensive analysis target
 check: cppcheck clang-analyze clang-tidy flawfinder splint frama-c infer pvs-studio
@@ -281,3 +297,6 @@ clean:
 	@[ -d "$(SRC_DIR)/.scannerwork" ] && rm -rf "$(SRC_DIR)/.scannerwork" || true
 	@[ -d "$(SRC_DIR)/Logs" ] && rm -rf "$(SRC_DIR)/Logs" || true
 	rm -f $(OBJS) $(EXEC) $(SRC_DIR)/*.plist $(SRC_DIR)/compile_commands.json $(SRC_DIR)/*.log
+
+clean-test:
+	rm -f $(TEST_OBJS)
