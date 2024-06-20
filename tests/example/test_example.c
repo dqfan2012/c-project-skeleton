@@ -1,6 +1,6 @@
 #include <check.h>
 #include <stdbool.h>
-#include <stdlib.h>  // Include this header for EXIT_SUCCESS and EXIT_FAILURE
+#include <stdlib.h>
 
 START_TEST(test_true_is_true)
 {
