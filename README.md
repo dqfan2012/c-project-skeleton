@@ -2,6 +2,7 @@
 
 - [Table of Contents](#table-of-contents)
   - [C Project Skeleton](#c-project-skeleton)
+    - [Code Formatting Rules](#code-formatting-rules)
     - [Static Analysis Tools](#static-analysis-tools)
       - [Optional Static Analysis tools](#optional-static-analysis-tools)
         - [Free Options](#free-options)
@@ -27,6 +28,10 @@
 **THIS PROJECT IS A WIP.** It needs a **lot** of work.
 
 This is a basic C project skeleton. This project provides sane and strict CFLAGS for compiling C programs. This project also includes several make targets to run static analysis tools to help with code saftey and code smell.
+
+### Code Formatting Rules
+
+This project follows Google's formatting rules for C/C++.
 
 ### Static Analysis Tools
 
