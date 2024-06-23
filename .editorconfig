@@ -1,20 +1,14 @@
-# top-most EditorConfig file
 root = true
 
-# Unix-style newlines with a newline ending every file
 [*]
 charset = utf-8
-trim_trailing_whitespace = true
 end_of_line = lf
+indent_style = space
+indent_size = 2
 insert_final_newline = true
+trim_trailing_whitespace = true
 
-# Tab indentation (no size specified)
-[Makefile]
-indent_style = tab
-
-[*.{c++,cc,cpp,cxx,h,h++,hh,hpp,hxx,inl,ipp,tlh,tli}]
-indent_size = 4
-
+[*.{c,cc,cpp,cxx,h,hpp,hxx,inl,ipp,tlh,tli}]
 guidelines = 120
 
 cpp_indent_braces = false
@@ -32,9 +26,9 @@ cpp_indent_namespace_contents = true
 cpp_indent_preserve_comments = false
 cpp_new_line_before_open_brace_namespace = ignore
 cpp_new_line_before_open_brace_type = same_line
-cpp_new_line_before_open_brace_function = new_line
+cpp_new_line_before_open_brace_function = same_line
 cpp_new_line_before_open_brace_block = same_line
-cpp_new_line_before_open_brace_lambda = new_line
+cpp_new_line_before_open_brace_lambda = same_line
 cpp_new_line_scope_braces_on_separate_lines = true
 cpp_new_line_close_brace_same_line_empty_type = true
 cpp_new_line_close_brace_same_line_empty_function = true
@@ -75,3 +69,6 @@ cpp_space_around_assignment_operator = insert
 cpp_space_pointer_reference_alignment = right
 cpp_space_around_ternary_operator = insert
 cpp_wrap_preserve_blocks = one_liners
+
+[Makefile]
+indent_style = tab
