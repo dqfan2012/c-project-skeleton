@@ -1,3 +1,5 @@
+# ARCHIVED: This repository is no longer maintained. Please use [c-project-skeleton-v2](https://github.com/dqfan2012/c-project-skeleton-v2) for the latest version.
+
 # Table of Contents
 
 - [Table of Contents](#table-of-contents)
